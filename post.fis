@@ -1,0 +1,161 @@
+
+[MASS=0]
+[BallNumber=0]
+[vl=vector(Length_XX1*1.02,Length_ZZ2,Length_ZZ2)]
+[vum=vector((Length_XX2-Length_XX1)/3+Length_XX1,Length_ZZ3,Length_ZZ3)]
+[vu=vector(Length_XX2,Length_ZZ3,Length_ZZ3)]
+[vlm=vector((Length_XX2-Length_XX1)/1.1+Length_XX1,Length_ZZ2,Length_ZZ2)]
+[box_W1=(Length_XX2-Length_XX1)*Length_ZZ2*Length_ZZ2]
+
+[vl_inbox=vector(Length_XX1*8/10,0,0)]
+[vu_inbox=vector(Length_XX1,Length_YY1,Length_ZZ1)]
+[box_W2=Length_XX1*2/10*Length_YY1*Length_ZZ1]
+
+def history_MASS
+  loop foreach local bp ball.inbox(vl,vum,false)
+    if ball.extra(bp,2) = 0 
+      ball.extra(bp,2)=1
+      MASS+=ball.vol(bp)
+      BallNumber+=1
+    endif
+  endloop
+  loop foreach bp ball.inbox(vlm,vu)
+    if ball.extra(bp,2) = 1
+      ball.extra(bp,2)=0
+    endif
+  endloop
+  MASS_residual=(MASS_total-MASS)/MASS_total
+  
+  
+  ;MASS_C_inbox=0
+  ;loop foreach bp ball.inbox(vl,vu,false)
+  ;    MASS_C_inbox+=ball.vol(bp)
+  ;endloop
+  ;MASS_W_inbox=(box_W1-MASS_C_inbox)
+  ;WC_inbox2=MASS_W_inbox/(MASS_C_inbox+1e-10)*0.317
+  ;
+  ;MASS_C_inbox=0
+  ;loop foreach bp ball.inbox(vl_inbox,vu_inbox,false)
+  ;    MASS_C_inbox+=ball.vol(bp)
+  ;endloop
+  ;MASS_W_inbox=(box_W2-MASS_C_inbox)
+  ;WC_inbox1=MASS_W_inbox/(MASS_C_inbox+1e-10)*0.317
+  
+  
+end
+
+[mech.time.total=0]
+def fluid_time
+  global fluid_time = mech.time.total
+end
+
+
+element cfd group 'section1' slot '1' range position-x 0.014 0.015
+element cfd group 'section2' slot '1' range position-x 0.069 0.07
+
+def group_ID
+  ID1=array(81)
+  ID2=array(9)
+  ID1NUM=1
+  ID2NUM=1
+  loop foreach local e element.cfd.list
+    if element.cfd.isgroup(e,'section1',1)=1
+      io.out(e)
+      ID1(ID1NUM)=e
+      ID1NUM+=1
+    endif
+    if element.cfd.isgroup(e,'section2',1)=1
+      io.out(e)
+      ID2(ID2NUM)=e
+      ID2NUM+=1
+    endif
+  endloop
+end
+@group_ID
+
+
+
+def history_CFD_INFO
+  CFD_Velocity_1=0
+  CFD_Velocity_2=0
+  CFD_pressure_1=0
+  CFD_pressure_2=0
+  
+  loop ii(1,9)
+    CFD_Velocity_1+=element.cfd.vel.x(ID1(ii))
+    CFD_Velocity_2+=element.cfd.vel.x(ID2(ii))
+    CFD_pressure_1+=element.cfd.pressure(ID1(ii))
+    CFD_pressure_2+=element.cfd.pressure(ID2(ii))
+  endloop
+  loop ii(10,81)
+    CFD_Velocity_1+=element.cfd.vel.x(ID1(ii))
+    CFD_pressure_1+=element.cfd.pressure(ID1(ii))
+  endloop
+  
+  CFD_Velocity_1/=81
+  CFD_Velocity_2/=9
+  CFD_pressure_1/=81
+  CFD_pressure_2/=9
+end 
+
+[global dt]
+[global saftCOF]
+def porosityDEC
+  CFDDT=dt
+  section
+  loop foreach local e element.cfd.list
+    if  element.cfd.porosity(e)<0.25
+      CFDDT=dt/saftCOF
+      exit
+    endif
+  endloop
+  endsection
+end
+
+
+[contactNUM=0]
+[global cp]
+def history_contactNUM(cp)
+  if cp#null
+  contactNUM+=1
+  local i=1
+  info=array.create(1)
+  filename='history_contact23-4.dat'
+  status=file.open(filename,2,1)
+  info(i)=string(fluid_time)+' '...
+     +string(contact.pos.x(cp))+' '...
+     +string(contact.pos.y(cp))+' '...
+     +string(contact.pos.z(cp))
+  status=file.write(info,i)
+  status=file.close()
+  endif
+end
+
+
+def contactGroup
+  f=0
+  loop foreach cp contact.list
+    
+    fx=contact.force.global.x(cp)
+    fy=contact.force.global.y(cp)
+    fz=contact.force.global.z(cp)
+    f2=fx^2+fy^2+fz^2
+    contact.extra(cp,1)=f2
+    f+=f2
+  endloop
+  if contact.num#0
+    meanf=(f/contact.num)^0.5
+  else
+    meanf=0
+  endif
+  ;loop foreach cp contact.list('ball-ball')
+  ;  if contact.extra(cp,1)>meanf
+  ;    contact.group(cp,1) = 'ok'
+  ;    b1=contact.end1(cp)
+  ;    ball.group(b1,1)='ok'
+  ;    b1=contact.end2(cp)
+  ;    ball.group(b1,1)='ok'
+  ;  endif
+  ;endloop
+end
+

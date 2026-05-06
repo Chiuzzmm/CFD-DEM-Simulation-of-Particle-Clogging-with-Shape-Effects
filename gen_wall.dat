@@ -1,0 +1,89 @@
+
+
+def wall_pars
+  local scale=0.001
+  Length_XX1=50*scale
+  Length_YY1=7.2*scale
+  Length_ZZ1=7.2*scale
+  Length_XX2=72*scale
+  Length_ZZ2=2.4*scale
+  Length_ZZ3=4.8*scale
+  
+  
+
+  ;vertices
+  local p0=vector(0,0,0);0
+  local p1=vector(Length_XX1,0,0);1
+  local p2=vector(Length_XX1,Length_YY1,0);2
+  local p3=vector(0,Length_YY1,0);3
+  local p4=vector(0,0,Length_ZZ1);4
+  local p5=vector(Length_XX1,0,Length_ZZ1);5
+  local p6=vector(Length_XX1,Length_YY1,Length_ZZ1);6
+  local p7=vector(0,Length_YY1,Length_ZZ1);7
+  
+  ;instead by -max
+  local p20=vector(-Length_XX1,0,0);0
+  local p21=vector(Length_XX1,0,0);1
+  local p22=vector(Length_XX1,Length_YY1,0);2
+  local p23=vector(-Length_XX1,Length_YY1,0);3
+  local p24=vector(-Length_XX1,0,Length_ZZ1);4
+  local p25=vector(Length_XX1,0,Length_ZZ1);5
+  local p26=vector(Length_XX1,Length_YY1,Length_ZZ1);6
+  local p27=vector(-Length_XX1,Length_YY1,Length_ZZ1);7
+  
+  
+  local p8=vector(Length_XX1,Length_ZZ2,Length_ZZ2);8
+  local p9=vector(Length_XX2,Length_ZZ2,Length_ZZ2);9
+  local p10=vector(Length_XX2,2*Length_ZZ2,Length_ZZ2);10
+  local p11=vector(Length_XX1,2*Length_ZZ2,Length_ZZ2);11
+  
+  local p12=vector(Length_XX1,Length_ZZ2,Length_ZZ3);12
+  local p13=vector(Length_XX2,Length_ZZ2,Length_ZZ3);13
+  local p14=vector(Length_XX2,2*Length_ZZ2,Length_ZZ3);14
+  local p15=vector(Length_XX1,2*Length_ZZ2,Length_ZZ3);15
+
+  ;(0 1 5 4)
+  ;(3 2 6 7)
+  ;(0 1 2 3)
+  ;(4 5 6 7)
+  ;
+  ;(12 13 9 8)
+  ;(8 9 10 11)
+  ;(11 10 14 15)
+  ;(12 13 14 15)
+
+  command
+    wall generate polygon @p0 @p1 @p5 @p4
+    wall generate polygon @p3 @p2 @p6 @p7
+    wall generate polygon @p0 @p1 @p2 @p3
+    wall generate polygon @p4 @p5 @p6 @p7
+    
+    wall generate polygon @p12 @p13 @p9 @p8
+    wall generate polygon @p8 @p9 @p10 @p11
+    wall generate polygon @p11 @p10 @p14 @p15
+    wall generate polygon @p12 @p13 @p14 @p15
+    
+    wall generate polygon @p1 @p2 @p11 @p8
+    wall generate polygon @p12 @p15 @p6 @p5
+    wall generate polygon @p1 @p8 @p12 @p5
+    wall generate polygon @p11 @p2 @p6 @p15
+    
+    
+    ;wall generate polygon @p20 @p21 @p25 @p24
+    ;wall generate polygon @p23 @p22 @p26 @p27
+    ;wall generate polygon @p20 @p21 @p22 @p23
+    ;wall generate polygon @p24 @p25 @p26 @p27
+    
+    ;wall generate group 'wall' slot '1' polygon @p20 @p23 @p24 @p27 
+    wall generate group 'wall' slot '1' polygon @p0 @p3 @p4 @p7 
+    wall generate group 'wall' slot '1' polygon @p9 @p10 @p13 @p14
+  endcommand
+end
+@wall_pars
+
+
+
+model save 'create_wall'
+
+
+

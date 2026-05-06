@@ -1,0 +1,100 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+Length_XX1 50;
+Length_YY1 7.2;
+Length_ZZ1 7.2;
+Length_XX2 72;
+Length_ZZ2 2.4;
+Length_ZZ3 4.8;
+
+scale   0.001;
+
+vertices
+(
+    (0 0 0)//0
+    ($Length_XX1 0 0)//1
+    ($Length_XX1 $Length_YY1 0)//2
+    (0 $Length_YY1 0)//3
+    (0 0 $Length_ZZ1)//4
+    ($Length_XX1 0 $Length_ZZ1)//5
+    ($Length_XX1 $Length_YY1 $Length_ZZ1)//6
+    (0 $Length_YY1 $Length_ZZ1)//7
+
+    ($Length_XX1 0 $Length_ZZ2)//8
+    ($Length_XX2 0 $Length_ZZ2)//9
+    ($Length_XX2 $Length_YY1 $Length_ZZ2)//10
+    ($Length_XX1 $Length_YY1 $Length_ZZ2)//11
+
+    ($Length_XX1 0 $Length_ZZ3)//12
+    ($Length_XX2 0 $Length_ZZ3)//13
+    ($Length_XX2 $Length_YY1 $Length_ZZ3)//14
+    ($Length_XX1 $Length_YY1 $Length_ZZ3)//15
+
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (50 9 9) simpleGrading (1 1 1)
+    hex (8 9 10 11 12 13 14 15) (22 9 3) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    
+    OUTLET
+    {
+        type patch;
+        faces
+        (
+            (9 10 14 13)
+        );
+    }
+
+    INLET
+    {
+        type patch;
+        faces
+        (
+            
+            (0 3 7 4)
+        );
+    }
+
+    WALS
+    {
+        type wall;
+        faces
+        (
+            (0 1 5 4)
+            (3 2 6 7)
+            (0 1 2 3)
+            (4 5 6 7)
+
+            (12 13 9 8)
+            (8 9 10 11)
+            (11 10 14 15)
+            (12 13 14 15)
+        );
+    }
+);
+
+
+// ************************************************************************* //

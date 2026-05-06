@@ -1,0 +1,9 @@
+# family_boco file written by ICEM CFD by zm.chiu on Fri Jun 30 0:04:23 中国标准时间 2023
+## solver Ansys Fluent
+"XUSHANLIN-FREEPARTS__________2_1"
+"SOLID"
+"SOLID" "color" 3403389
+"INLET"
+"WALS"
+"OUTLET"
+

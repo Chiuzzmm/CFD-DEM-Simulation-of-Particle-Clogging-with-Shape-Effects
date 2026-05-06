@@ -1,0 +1,490 @@
+// tetin file version 1.1
+// written by ICEM CFD - version 22.1 on Fri Jun 30 00:04:23 2023
+
+set_triangulation_tolerance 0.001
+# In ICEM CFD 4.2 the family_boco file is no longer tied to tetin
+# read_family_boco family_boco
+define_family XUSHANLIN-FREEPARTS__________2_1 color 3406933
+define_family SOLID color 3403389
+define_family INLET color 16663101
+define_family WALS color 3403389
+define_family OUTLET color 3387852
+
+prescribed_point 72 4.8 4.8 family XUSHANLIN-FREEPARTS__________2_1 name VERT16
+prescribed_point 72 2.4 4.8 family XUSHANLIN-FREEPARTS__________2_1 name VERT18
+prescribed_point 50 4.8 4.8 family XUSHANLIN-FREEPARTS__________2_1 name VERT19
+prescribed_point 50 2.4 4.8 family XUSHANLIN-FREEPARTS__________2_1 name VERT20
+prescribed_point 72 4.8 2.4 family XUSHANLIN-FREEPARTS__________2_1 name VERT45
+prescribed_point 50 4.8 2.4 family XUSHANLIN-FREEPARTS__________2_1 name VERT46
+prescribed_point 72 2.4 2.4 family XUSHANLIN-FREEPARTS__________2_1 name VERT47
+prescribed_point 50 2.4 2.4 family XUSHANLIN-FREEPARTS__________2_1 name VERT48
+prescribed_point 50 7.2 0 family XUSHANLIN-FREEPARTS__________2_1 name VERT60
+prescribed_point 50 7.2 7.2 family XUSHANLIN-FREEPARTS__________2_1 name VERT61
+prescribed_point 50 0 7.2 family XUSHANLIN-FREEPARTS__________2_1 name VERT62
+prescribed_point 50 0 0 family XUSHANLIN-FREEPARTS__________2_1 name VERT63
+prescribed_point 0 7.2 7.2 family XUSHANLIN-FREEPARTS__________2_1 name VERT65
+prescribed_point 0 0 7.2 family XUSHANLIN-FREEPARTS__________2_1 name VERT66
+prescribed_point 0 7.2 0 family XUSHANLIN-FREEPARTS__________2_1 name VERT67
+prescribed_point 0 0 0 family XUSHANLIN-FREEPARTS__________2_1 name VERT17
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE21 vertex1 VERT16 vertex2 VERT18 dscell_id 1073741825
+bspline
+2,2,0
+0,0,1,1
+72,4.8,4.8
+72,2.4,4.8
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE22 vertex1 VERT19 vertex2 VERT16 dscell_id 1073741826
+bspline
+2,2,0
+0,0,1,1
+50,4.8,4.8
+72,4.8,4.8
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE23 vertex1 VERT19 vertex2 VERT20 dscell_id 1073741827
+bspline
+2,2,0
+0,0,1,1
+50,4.8,4.8
+50,2.4,4.8
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE24 vertex1 VERT20 vertex2 VERT18 dscell_id 1073741828
+bspline
+2,2,0
+0,0,1,1
+50,2.4,4.8
+72,2.4,4.8
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE25 vertex1 VERT45 vertex2 VERT16 dscell_id 1073741829
+bspline
+2,2,0
+0,0,1,1
+72,4.8,2.4
+72,4.8,4.8
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE26 vertex1 VERT46 vertex2 VERT45 dscell_id 1073741830
+bspline
+2,2,0
+0,0,1,1
+50,4.8,2.4
+72,4.8,2.4
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE27 vertex1 VERT46 vertex2 VERT19 dscell_id 1073741831
+bspline
+2,2,0
+0,0,1,1
+50,4.8,2.4
+50,4.8,4.8
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE28 vertex1 VERT47 vertex2 VERT45 dscell_id 1073741832
+bspline
+2,2,0
+0,0,1,1
+72,2.4,2.4
+72,4.8,2.4
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE29 vertex1 VERT48 vertex2 VERT47 dscell_id 1073741833
+bspline
+2,2,0
+0,0,1,1
+50,2.4,2.4
+72,2.4,2.4
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE30 vertex1 VERT48 vertex2 VERT46 dscell_id 1073741834
+bspline
+2,2,0
+0,0,1,1
+50,2.4,2.4
+50,4.8,2.4
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE31 vertex1 VERT18 vertex2 VERT47 dscell_id 1073741835
+bspline
+2,2,0
+0,0,1,1
+72,2.4,4.8
+72,2.4,2.4
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE32 vertex1 VERT20 vertex2 VERT48 dscell_id 1073741836
+bspline
+2,2,0
+0,0,1,1
+50,2.4,4.8
+50,2.4,2.4
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE33 vertex1 VERT60 vertex2 VERT61 dscell_id 1073741837
+bspline
+2,2,0
+0,0,1,1
+50,7.2,0
+50,7.2,7.2
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE34 vertex1 VERT62 vertex2 VERT61 dscell_id 1073741838
+bspline
+2,2,0
+0,0,1,1
+50,0,7.2
+50,7.2,7.2
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE35 vertex1 VERT62 vertex2 VERT63 dscell_id 1073741839
+bspline
+2,2,0
+0,0,1,1
+50,0,7.2
+50,0,0
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE36 vertex1 VERT63 vertex2 VERT60 dscell_id 1073741840
+bspline
+2,2,0
+0,0,1,1
+50,0,0
+50,7.2,0
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE37 vertex1 VERT61 vertex2 VERT65 dscell_id 1073741841
+bspline
+2,2,0
+0,0,1,1
+50,7.2,7.2
+0,7.2,7.2
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE38 vertex1 VERT66 vertex2 VERT65 dscell_id 1073741842
+bspline
+2,2,0
+0,0,1,1
+0,0,7.2
+0,7.2,7.2
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE39 vertex1 VERT66 vertex2 VERT62 dscell_id 1073741843
+bspline
+2,2,0
+0,0,1,1
+0,0,7.2
+50,0,7.2
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE40 vertex1 VERT65 vertex2 VERT67 dscell_id 1073741844
+bspline
+2,2,0
+0,0,1,1
+0,7.2,7.2
+0,7.2,0
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE41 vertex1 VERT17 vertex2 VERT67 dscell_id 1073741845
+bspline
+2,2,0
+0,0,1,1
+0,0,0
+0,7.2,0
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE42 vertex1 VERT17 vertex2 VERT66 dscell_id 1073741846
+bspline
+2,2,0
+0,0,1,1
+0,0,0
+0,0,7.2
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE43 vertex1 VERT67 vertex2 VERT60 dscell_id 1073741847
+bspline
+2,2,0
+0,0,1,1
+0,7.2,0
+50,7.2,0
+define_curve family XUSHANLIN-FREEPARTS__________2_1 tetra_size 1e+10 name EDGE44 vertex1 VERT63 vertex2 VERT17 dscell_id 1073741848
+bspline
+2,2,0
+0,0,1,1
+50,0,0
+0,0,0
+define_surface name FACE49 family WALS tetra_size 1e+10 dscell_id 2147483649 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve - EDGE21
+polyline n_points 2
+0.2656878700189,0.52556132631781
+0.2656878700189,0.47443867977648
+coedge 3dcurve - EDGE22
+polyline n_points 2
+0.2656878700189,0.47443867977648
+0.7343121299811,0.47443867977648
+coedge 3dcurve   EDGE23
+polyline n_points 2
+0.7343121299811,0.47443867977648
+0.7343121299811,0.52556132631781
+coedge 3dcurve   EDGE24
+polyline n_points 2
+0.7343121299811,0.52556132631781
+0.2656878700189,0.52556132631781
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+84.472963181392,27.072963324443,4.8
+37.527036818608,27.072963324443,4.8
+84.472963181392,-19.872963038341,4.8
+37.527036818608,-19.872963038341,4.8
+define_surface name FACE50 family WALS tetra_size 1e+10 dscell_id 2147483650 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve - EDGE25
+polyline n_points 2
+0.47443867977648,0.2656878700189
+0.52556132631781,0.2656878700189
+coedge 3dcurve - EDGE26
+polyline n_points 2
+0.52556132631781,0.2656878700189
+0.52556132631781,0.7343121299811
+coedge 3dcurve   EDGE27
+polyline n_points 2
+0.52556132631781,0.7343121299811
+0.47443867977648,0.7343121299811
+coedge 3dcurve   EDGE22
+polyline n_points 2
+0.47443867977648,0.7343121299811
+0.47443867977648,0.2656878700189
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+84.472963181392,4.8,27.072963324443
+84.472963181392,4.8,-19.872963038341
+37.527036818608,4.8,27.072963324443
+37.527036818608,4.8,-19.872963038341
+define_surface name FACE51 family WALS tetra_size 1e+10 dscell_id 2147483651 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve - EDGE28
+polyline n_points 2
+0.47443867977648,0.2656878700189
+0.52556132631781,0.2656878700189
+coedge 3dcurve - EDGE29
+polyline n_points 2
+0.52556132631781,0.2656878700189
+0.52556132631781,0.7343121299811
+coedge 3dcurve   EDGE30
+polyline n_points 2
+0.52556132631781,0.7343121299811
+0.47443867977648,0.7343121299811
+coedge 3dcurve   EDGE26
+polyline n_points 2
+0.47443867977648,0.7343121299811
+0.47443867977648,0.2656878700189
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+84.472963181392,27.072963324443,2.4
+84.472963181392,-19.872963038341,2.4
+37.527036818608,27.072963324443,2.4
+37.527036818608,-19.872963038341,2.4
+define_surface name FACE52 family WALS tetra_size 1e+10 dscell_id 2147483652 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve - EDGE31
+polyline n_points 2
+0.2656878700189,0.52556132631781
+0.2656878700189,0.47443867977648
+coedge 3dcurve - EDGE24
+polyline n_points 2
+0.2656878700189,0.47443867977648
+0.7343121299811,0.47443867977648
+coedge 3dcurve   EDGE32
+polyline n_points 2
+0.7343121299811,0.47443867977648
+0.7343121299811,0.52556132631781
+coedge 3dcurve   EDGE29
+polyline n_points 2
+0.7343121299811,0.52556132631781
+0.2656878700189,0.52556132631781
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+84.472963181392,2.4,27.072963324443
+37.527036818608,2.4,27.072963324443
+84.472963181392,2.4,-19.872963038341
+37.527036818608,2.4,-19.872963038341
+define_surface name FACE53 family OUTLET tetra_size 1e+10 dscell_id 2147483653 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   EDGE31
+polyline n_points 2
+0.66666667991214,0.33333335982429
+0.66666667991214,0.66666667991214
+coedge 3dcurve   EDGE28
+polyline n_points 2
+0.66666667991214,0.66666667991214
+0.33333335982429,0.66666667991214
+coedge 3dcurve   EDGE25
+polyline n_points 2
+0.33333335982429,0.66666667991214
+0.33333335982429,0.33333335982429
+coedge 3dcurve   EDGE21
+polyline n_points 2
+0.33333335982429,0.33333335982429
+0.66666667991214,0.33333335982429
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+72,7.2000002861023,7.2000002861023
+72,-4.4408920985006e-16,7.2000002861023
+72,7.2000002861023,-4.4408920985006e-16
+72,0,0
+define_surface name FACE54 family WALS tetra_size 1e+10 dscell_id 2147483654 orig_type 0
+trim_surface n_loops 2
+loop n_curves 4
+coedge 3dcurve   EDGE33
+polyline n_points 2
+0.33333332450302,0.66666666666667
+0.33333332450302,0.33333332450302
+coedge 3dcurve - EDGE34
+polyline n_points 2
+0.33333332450302,0.33333332450302
+0.66666666666667,0.33333332450302
+coedge 3dcurve   EDGE35
+polyline n_points 2
+0.66666666666667,0.33333332450302
+0.66666666666667,0.66666666666667
+coedge 3dcurve   EDGE36
+polyline n_points 2
+0.66666666666667,0.66666666666667
+0.33333332450302,0.66666666666667
+loop n_curves 4
+coedge 3dcurve - EDGE32
+polyline n_points 2
+0.55555555261212,0.55555555261212
+0.55555555261212,0.44444443855757
+coedge 3dcurve - EDGE23
+polyline n_points 2
+0.55555555261212,0.44444443855757
+0.44444443855757,0.44444443855757
+coedge 3dcurve - EDGE27
+polyline n_points 2
+0.44444443855757,0.44444443855757
+0.44444443855757,0.55555555261212
+coedge 3dcurve - EDGE30
+polyline n_points 2
+0.44444443855757,0.55555555261212
+0.55555555261212,0.55555555261212
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+50,14.39999961853,14.39999961853
+50,-7.1999998092651,14.39999961853
+50,14.39999961853,-7.1999998092651
+50,-7.1999998092651,-7.1999998092651
+define_surface name FACE55 family WALS tetra_size 1e+10 dscell_id 2147483655 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   EDGE37
+polyline n_points 2
+0.26670414017838,0.46640539529573
+0.73329585982162,0.46640539529573
+coedge 3dcurve - EDGE38
+polyline n_points 2
+0.73329585982162,0.46640539529573
+0.73329585982162,0.53359460292436
+coedge 3dcurve   EDGE39
+polyline n_points 2
+0.73329585982162,0.53359460292436
+0.26670414017838,0.53359460292436
+coedge 3dcurve   EDGE34
+polyline n_points 2
+0.26670414017838,0.53359460292436
+0.26670414017838,0.46640539529573
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+78.58003356578,57.180033470412,7.2
+-28.58003356578,57.180033470412,7.2
+78.58003356578,-49.980033661147,7.2
+-28.58003356578,-49.980033661147,7.2
+define_surface name FACE56 family INLET tetra_size 1e+10 dscell_id 2147483656 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   EDGE40
+polyline n_points 2
+0.33333332450302,0.33333332450302
+0.66666666666667,0.33333332450302
+coedge 3dcurve - EDGE41
+polyline n_points 2
+0.66666666666667,0.33333332450302
+0.66666666666667,0.66666666666667
+coedge 3dcurve   EDGE42
+polyline n_points 2
+0.66666666666667,0.66666666666667
+0.33333332450302,0.66666666666667
+coedge 3dcurve   EDGE38
+polyline n_points 2
+0.33333332450302,0.66666666666667
+0.33333332450302,0.33333332450302
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+0,14.39999961853,14.39999961853
+0,14.39999961853,-7.1999998092651
+0,-7.1999998092651,14.39999961853
+0,-7.1999998092651,-7.1999998092651
+define_surface name FACE57 family WALS tetra_size 1e+10 dscell_id 2147483657 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve   EDGE43
+polyline n_points 2
+0.46640539529573,0.73329585982162
+0.46640539529573,0.26670414017838
+coedge 3dcurve - EDGE36
+polyline n_points 2
+0.46640539529573,0.26670414017838
+0.53359460292436,0.26670414017838
+coedge 3dcurve   EDGE44
+polyline n_points 2
+0.53359460292436,0.26670414017838
+0.53359460292436,0.73329585982162
+coedge 3dcurve   EDGE41
+polyline n_points 2
+0.53359460292436,0.73329585982162
+0.46640539529573,0.73329585982162
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+78.58003356578,57.180033470412,0
+78.58003356578,-49.980033661147,0
+-28.58003356578,57.180033470412,0
+-28.58003356578,-49.980033661147,0
+define_surface name FACE58 family WALS tetra_size 1e+10 dscell_id 2147483658 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve - EDGE33
+polyline n_points 2
+0.46640539529573,0.26670414017838
+0.53359460292436,0.26670414017838
+coedge 3dcurve - EDGE43
+polyline n_points 2
+0.53359460292436,0.26670414017838
+0.53359460292436,0.73329585982162
+coedge 3dcurve - EDGE40
+polyline n_points 2
+0.53359460292436,0.73329585982162
+0.46640539529573,0.73329585982162
+coedge 3dcurve - EDGE37
+polyline n_points 2
+0.46640539529573,0.73329585982162
+0.46640539529573,0.26670414017838
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+78.58003356578,7.2,57.180033470412
+78.58003356578,7.2,-49.980033661147
+-28.58003356578,7.2,57.180033470412
+-28.58003356578,7.2,-49.980033661147
+define_surface name FACE59 family WALS tetra_size 1e+10 dscell_id 2147483659 orig_type 0
+trim_surface n_loops 1
+loop n_curves 4
+coedge 3dcurve - EDGE44
+polyline n_points 2
+0.73329585982162,0.53359460292436
+0.26670414017838,0.53359460292436
+coedge 3dcurve - EDGE35
+polyline n_points 2
+0.26670414017838,0.53359460292436
+0.26670414017838,0.46640539529573
+coedge 3dcurve - EDGE39
+polyline n_points 2
+0.26670414017838,0.46640539529573
+0.73329585982162,0.46640539529573
+coedge 3dcurve - EDGE42
+polyline n_points 2
+0.73329585982162,0.46640539529573
+0.73329585982162,0.53359460292436
+bspline
+2,2,2,2,0
+0,0,1,1
+0,0,1,1
+78.58003356578,0,57.180033470412
+-28.58003356578,0,57.180033470412
+78.58003356578,0,-49.980033661147
+-28.58003356578,0,-49.980033661147
+affix 0
+define_model 1 reference_size 1 units mm
+define_prism_meshing_parameters law 0 nlay 3 hratio 1.2 min_quality 0.01 fillet 0.1 tetra_smooth_limit 0.3
+return

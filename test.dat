@@ -1,0 +1,45 @@
+
+def spinHistory
+  ;find max ball extra
+  maxnum=0
+  loop foreach bp ball.list
+    if ball.extra(bp,1)>maxnum
+      maxnum=ball.extra(bp,1)
+    endif
+  endloop
+  
+  info=array.create(maxnum+10)
+  filename='history_spin-2-2-5-4.dat'
+  status=file.open(filename,2,1)
+  loop id(1,maxnum)
+    ;io.out(id)
+    posx=0
+    posy=0
+    posz=0
+    spin=0
+    num=0
+    loop foreach bp ball.list
+        if ball.extra(bp,1)==id
+          ;io.out(ball.extra(bp,1))
+          num+=1
+          posx+=ball.pos.x(bp)
+          posy+=ball.pos.y(bp)
+          posz+=ball.pos.z(bp)
+          spin+=(ball.spin.x(bp)^2+ball.spin.y(bp)^2+ball.spin.z(bp)^2)^0.5
+        endif
+    endloop
+    posx/=6
+    posy/=6
+    posz/=6
+    spin/=6
+    
+    info(id)=string(id)+' '...
+     +string(posx)+' '...
+     +string(posy)+' '...
+     +string(posz)+' ' ...
+     +string(spin)
+  endloop
+  status=file.write(info,id)
+  status=file.close()
+end
+@spinHistory

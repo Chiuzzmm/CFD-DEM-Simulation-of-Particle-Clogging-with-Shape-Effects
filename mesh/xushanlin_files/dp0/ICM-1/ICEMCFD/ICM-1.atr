@@ -1,0 +1,30 @@
+# Written by ICEM CFD 22.1, user zm.chiu, Fri Jun 30 0:04:23 中国标准时间 2023
+
+begin family XUSHANLIN-FREEPARTS__________2_1
+    begin solver "Ansys Fluent"
+    end solver "Ansys Fluent"
+end family XUSHANLIN-FREEPARTS__________2_1
+
+begin family SOLID
+    begin solver "Ansys Fluent"
+        begin bctype color
+            active 1
+            color 3403390 1
+        end bctype color
+    end solver "Ansys Fluent"
+end family SOLID
+
+begin family INLET
+    begin solver "Ansys Fluent"
+    end solver "Ansys Fluent"
+end family INLET
+
+begin family WALS
+    begin solver "Ansys Fluent"
+    end solver "Ansys Fluent"
+end family WALS
+
+begin family OUTLET
+    begin solver "Ansys Fluent"
+    end solver "Ansys Fluent"
+end family OUTLET

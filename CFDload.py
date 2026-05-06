@@ -1,0 +1,28 @@
+from itasca import p2pLinkClient
+import numpy as np
+from pyDemFoam import pyDemIcoFoam
+
+
+solver = pyDemIcoFoam()
+
+pfc_link = p2pLinkClient()
+pfc_link.connect("172.20.48.1")  # pfc_link.connect("127.0.0.1")
+
+
+while True:
+    deltat = pfc_link.read_data()
+    if deltat == 0.0:
+        print("solve finished")
+        break
+    solver.n(pfc_link.read_data())
+    solver.f(pfc_link.read_data())
+
+    solver.set_dt(deltat)
+    solver.solve(deltat)
+
+    pfc_link.send_data(solver.p()*solver.rho())
+    pfc_link.send_data(solver.gradp()*solver.rho())
+    pfc_link.send_data(solver.U())
+
+pfc_link.close()
+del pfc_link
